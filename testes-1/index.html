@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!--CSS Bootstrap-->
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+
+    <!--JAVASCRIPT Bootstrap-->
+    <script src="js/bootstrap/bootstrap.bundle.min.js"></script>
+
+    <!--JSON-->
+    <script src="js/json/user.json"></script>
+
+    <!--JAVASCRIPT AJAX-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <!--JAVASCRIPT TEST main-->
+    <script src="js/main.js"></script>
+
+    <!--JAVSCRIPT index-->
+    <script src="js/script.js"></script>
+    <!--CSS index-->
+    <link rel="stylesheet" href="css/style.css">
+
+
+</head>
+
+<body>
+    <div class="row">
+
+        <script type="text/template" id="diarioTemplate">
+           
+            <!-- Template para os diarios -->            
+            <div class="col-3 mx-auto" style="width: 326px;">
+                <div class="card">
+                    <h5 class="card-header">
+                    <div id="SERIETURMA" class="col-auto SERIETURMA"></div>
+                    <div  id="cont_div2"class="col-7">
+                        <a id="student_icon" class="material-icons" href="class-selection-page/templates/testes/grid-lst/index.html">perm_identity</a><span id="dot" class="material-icons">&bull;</span><label class="CDSERIE" id="student_count">30</label>
+                    </div>
+                    <div id="cont_div3" class="col-sm-1">
+                        <span id="class_lock" class="material-icons" data-bs-toggle="modal" data-bs-target="#modal_confirmation">lock_open</span>
+                    </div>
+                    </h5>
+                    <div class="card-body">
+                    <div class="card-title"></div>
+                        <div class="card-text"><a class="DISCIPLINA" href="attendance-page.html"></a></div>
+                        <div class="col-12"><hr></div>
+                        <div class="col-12" id="teacher"><label class="PROFESSOR" id="teacher"></label></div>
+                        <div class="col-12" id="progress_bar_tittle">
+                            <a id="progress_bar_tittle">AULAS DADAS X AULAS PREVISTAS</a>
+                            <div class="progress">
+                                <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="70" style="width: 38.5%">55</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </script>
+
+    </div>
+</body>
+</html>
+

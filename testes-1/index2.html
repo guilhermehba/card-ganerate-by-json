@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <title>Document</title>
+    <style>
+.newmembers {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(155px, 175px));
+  grid-auto-rows: 370px;
+  grid-auto-flow: dense;
+  justify-content: center;
+  padding: 10px 10px 10px;
+  background-color: #c7c7c7;
+}
+
+.member {
+  background: rgba(255, 213, 70, 0.3);
+  border: 1px solid grey;
+  text-align: center;
+  border-radius: 4px;
+  box-shadow: 3px 3px 3px grey;
+}
+
+.type {
+  color: #1f7665;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin: 5px 5px 0px;
+  text-align: center;
+}
+
+.year {
+  color: #1f7665;
+  font-weight: bold;
+  font-size: x-small;
+  margin: 0px 0px 0px;
+  text-align: center;
+}
+
+.thumb {
+  width: 85%;
+  min-height: 160px;
+  max-height: 160px;
+  min-width: 160x;
+  max-width: 160px;
+  object-position: center top;
+  -o-object-fit: cover;
+  object-fit: cover;
+  overflow: hidden;
+  border: 5px solid #fff;
+  border-radius: 4px;
+  box-shadow: 5px 5px 5px grey;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+
+.thumb:hover {
+  position: relative;
+  top: 5px;
+  left: 5px;
+  background: #00CCCC;
+  -webkit-filter: grayscale(10%);
+  filter: grayscale(10%);
+}
+    </style>
+    <script>
+var postData = [{
+    "SERIETURMA": "1º ANO - B",
+    "year": "THREE",
+    "memurl": "https://example.com/smithville.html#5a2f81",
+    "DISCIPLINA": "LÍNGUA PORTUGUESA,ARTE,EDUCAÇÃO FÍSICA,MATEMÁTICA,CIÊNCIAS,ENSINO RELIGIOSO",
+    "membername": "Andy Smith",
+    "group": "Smithville",
+    "company": "Andys Lawn",
+    "classification": "Gardening"
+  },
+  {
+    "SERIETURMA": "1º ANO - B",
+    "year": "FOUR",
+    "memurl": "https://example.com/brownsville.html#5a2f86",
+    "memimgsrc": "https://example.com/brownsville.html/u/#5a2f86.jpg",
+    "membername": "Dave Brown",
+    "group": "Brownsville",
+    "company": "Daves Paint",
+    "classification": "Paint"
+  }
+];
+
+function append_json(data) {
+  //Set Up the template
+  var s = $("#postTemplate")[0].innerHTML.trim();
+  var holder = document.createElement('div');
+  holder.innerHTML = s;
+  var template = holder.childNodes;
+
+  var member = document.getElementById('newmembers');
+  data.forEach(function(object) {
+
+    //Clone Template
+    var newItem = $(template).clone();
+
+    //Populate it
+    $(newItem).find(".SERIETURMA").html(object.SERIETURMA);
+    $(newItem).find(".year").html($(newItem).find(".year").html() + " " + object.year);
+    $(newItem).find(".memurl").attr("href", object.memurl);
+    var img = $(newItem).find(".thumb")
+    $(newItem).find(".membername").html(object.membername);
+    $(newItem).find(".membername").html(object.membername);
+    $(newItem).find(".group").html(object.group);
+    $(newItem).find(".company").html(object.company);
+    $(newItem).find(".classification").html(object.classification);
+    //Append it
+
+    $(".newmembers").append(newItem);
+
+  });
+}
+
+$("document").ready(function() {
+  append_json(postData);
+});
+    </script>
+</head>
+<body>
+    <div class="newmembers">
+
+        <!-- Template for our posts -->
+        <script type="text/template" id="postTemplate">
+            <div class="member">
+            <p class="col-3 SERIETURMA"></p>
+            <p class="DISCIPLINA">Year:</p>
+            <a class="memurl" href="">
+                <img class="thumb" alt="MEMBER PROFILE: " title="MEMBER PROFILE: " src="">
+            </a>
+            <!-- Replaced p  with div, can't nest p tags -->
+            <div class="info">
+                <p class="membername"></p>
+                <p class="group"></p>
+                <p class="company"></p>
+                <p class="classification"></p>
+            </div>
+
+            </div>
+        </script>
+
+
+
+
+    </div>
+</body>
+</html>
